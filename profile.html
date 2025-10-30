@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile - Primlix</title>
+    <link rel="stylesheet" href="../css/profile.css" />
+    <script type="module" defer src="../js/profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand"><a href="home.html">Primlix</a></div>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="community.html">Community</a>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <button class="search-icon" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search movies..."
+            aria-label="Search"
+          />
+        </div>
+        <div class="profile">
+          <img
+            id="profile-pic"
+            src="https://www.w3.org/w3images/avatar2.png"
+            alt="User Profile"
+            class="profile-pic"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="profile-info">
+        <div class="profile-details">
+          <div class="profile-pic-container">
+            <img
+              id="profile-pic1"
+              src="https://www.w3.org/w3images/avatar2.png"
+              alt="Profile Picture"
+              class="profile-pic-large"
+            />
+          </div>
+          <div class="user-info">
+            <p>
+              <strong>Username:</strong> <span id="username">Loading...</span>
+            </p>
+            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+            <p>
+              <strong>Join Date:</strong> <span id="join-date">Loading...</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-lists">
+        <h2>Watchlist</h2>
+        <div class="movies-container">
+          <div class="movies-grid saved-grid"></div>
+          <button
+            class="scroll-arrow left-arrow saved-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow saved-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <h2>Currently Watching</h2>
+        <div class="movies-container">
+          <div class="movies-grid watching-grid"></div>
+          <button
+            class="scroll-arrow left-arrow watching-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow watching-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <h2>Watched</h2>
+        <div class="movies-container">
+          <div class="movies-grid watched-grid"></div>
+          <button
+            class="scroll-arrow left-arrow watched-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow watched-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <h2>Liked Movies</h2>
+        <div class="movies-container">
+          <div class="movies-grid liked-grid"></div>
+          <button
+            class="scroll-arrow left-arrow liked-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow liked-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <h2>Disliked Movies</h2>
+        <div class="movies-container">
+          <div class="movies-grid disliked-grid"></div>
+          <button
+            class="scroll-arrow left-arrow disliked-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow disliked-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="user-activity">
+        <h2>Your Activity</h2>
+        <div class="chart-container">
+          <canvas id="activityChart"></canvas>
+        </div>
+      </section>
+
+      <section class="account-management">
+        <h2>Account Management</h2>
+        <div class="management-buttons">
+          <button id="change-password-btn" class="btn-primary">
+            Change Password
+          </button>
+          <button id="logout-btn" class="btn-secondary">Log Out</button>
+          <button id="delete-account-btn" class="btn-danger">
+            Delete Account
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

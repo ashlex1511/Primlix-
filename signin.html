@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign In - Primlix</title>
+    <link rel="stylesheet" href="../css/signin.css" />
+  </head>
+  <body>
+    <header class="app"><div class="brand">Primlix</div></header>
+
+    <div class="signin-container">
+      <h2>Sign In</h2>
+
+      <form id="signinForm" novalidate autocomplete="off">
+        <div class="field">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            aria-label="Email Address"
+          />
+        </div>
+
+        <div class="field">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            aria-label="Password"
+          />
+        </div>
+
+        <div class="actions-row">
+          <button type="submit" class="pill pill-primary">Sign In</button>
+        </div>
+        <p id="message" class="error-message"></p>
+
+        <div class="social-signin">
+          <div class="divider"><span>OR</span></div>
+          <div class="social-buttons">
+            <button id="googleSignin" type="button" class="social-btn">
+              <img
+                src="https://developers.google.com/identity/images/g-logo.png"
+                alt="Google"
+              />
+              Continue with Google
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+    <script type="module" src="../js/signin.js"></script>
+  </body>
+</html>

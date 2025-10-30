@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Movie Details - Primlix</title>
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/movie_details.css" />
+    <script type="module" defer src="../js/movie_details.js"></script>
+  </head>
+
+  <body>
+    <header class="app-header animate-slide">
+      <div class="brand"><a href="home.html">Primlix</a></div>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="community.html">Community</a>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <button class="search-icon" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search movies..."
+            aria-label="Search"
+          />
+        </div>
+        <div class="profile">
+          <img
+            id="profile-pic"
+            src="https://www.w3.org/w3images/avatar2.png"
+            alt="User Profile"
+            class="profile-pic"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="movie-backdrop" id="movie-backdrop">
+        <div class="backdrop-overlay">
+          <div class="movie-details-content">
+            <img
+              id="movie-poster"
+              src="https://via.placeholder.com/300x450?text=Loading"
+              alt="Movie Poster"
+              class="movie-poster-details"
+            />
+            <div class="movie-info">
+              <h1 id="movie-title">Loading...</h1>
+              <p class="tagline" id="movie-tagline"></p>
+              <div class="meta-info">
+                <span id="movie-release-date"></span>
+                <span class="separator">|</span>
+                <span id="movie-runtime"></span>
+                <span class="separator">|</span>
+                <span id="movie-genres"></span>
+              </div>
+              <h2>Overview</h2>
+              <p class="overview" id="movie-overview">Loading...</p>
+
+              <div class="action-buttons">
+                <button id="btn-watchlist" class="btn-action">
+                  Add to Watchlist
+                </button>
+                <button id="btn-like" class="btn-action">Like</button>
+                <button id="btn-dislike" class="btn-action">Dislike</button>
+                <button id="btn-watched" class="btn-action">Watched</button>
+                <button id="btn-watching" class="btn-action">
+                  Currently Watching
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cast-section">
+        <h2>Top Billed Cast</h2>
+        <div class="cast-container">
+          <div class="cast-grid"></div>
+          <button
+            class="scroll-arrow left-arrow cast-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow cast-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="trailer-section">
+        <h2>Official Trailer</h2>
+        <div class="trailer-container" id="trailer-container">
+          <p>No trailer found.</p>
+        </div>
+      </section>
+
+      <section class="similar-movies">
+        <h2 id="similar-title">Similar to [Movie]</h2>
+        <div class="movies-container">
+          <div class="movies-grid similar-grid"></div>
+          <button
+            class="scroll-arrow left-arrow similar-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow similar-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home - Primlix</title>
+    <link rel="stylesheet" href="../css/home.css" />
+    <script type="module" defer src="../js/home.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">Primlix</div>
+
+      <nav class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="community.html">Community</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="search-container">
+          <button class="search-icon" aria-label="Search">
+            <!-- SVG icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search movies..."
+            aria-label="Search"
+          />
+        </div>
+        <div class="profile">
+          <a href="profile.html">
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              alt="User Profile"
+              class="profile-pic"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="latest-movies">
+        <h2>Latest Movies</h2>
+        <div class="movies-container">
+          <div class="movies-grid">
+            <!-- Example movie card -->
+            <div class="movie-card">
+              <img
+                src="https://image.tmdb.org/t/p/w500/your_movie_poster.jpg"
+                alt="Movie Title"
+                class="movie-poster"
+              />
+              <div class="movie-overlay">
+                <h3 class="movie-title">Movie Title</h3>
+                <p class="movie-year">2025</p>
+                <p class="movie-description">Movie Description</p>
+                <div class="movie-actions">
+                  <button class="btn-save">Save</button>
+                  <button class="btn-hide">Hide</button>
+                  <button class="btn-like">Like</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="scroll-arrow left-arrow" aria-label="Scroll left">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button class="scroll-arrow right-arrow" aria-label="Scroll right">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="top-rated-movies">
+        <h2>Top Rated</h2>
+        <div class="movies-container">
+          <div class="movies-grid top-rated-grid">
+            <!-- Top-rated movie cards will be inserted here by JS -->
+          </div>
+          <!-- Arrows positioned over the grid -->
+          <button
+            class="scroll-arrow left-arrow top-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow top-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="popular-movies">
+        <h2>Popular Now</h2>
+        <div class="movies-container">
+          <div class="movies-grid popular-grid">
+            <!-- Popular movie cards will be inserted here by JS -->
+          </div>
+          <!-- Arrows positioned over the grid -->
+          <button
+            class="scroll-arrow left-arrow pop-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow pop-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="recommendations-movies"
+        id="recommendations-section"
+        style="display: none"
+      >
+        <h2 id="recommendations-title">Recommended For You</h2>
+
+        <div class="movies-container">
+          <div class="movies-grid rec-grid"></div>
+
+          <button class="scroll-arrow left-arrow" aria-label="Scroll left">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button class="scroll-arrow right-arrow" aria-label="Scroll right">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="personalized-feed"
+        id="personalized-feed-section"
+        style="display: none"
+      >
+        <h2 id="personalized-feed-title">Based on Your Preferences</h2>
+
+        <div class="movies-container">
+          <div class="movies-grid feed-grid"></div>
+
+          <button class="scroll-arrow feed-left-arrow" aria-label="Scroll left">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow feed-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="browse-studios">
+        <h2>Browse by Studio</h2>
+        <div class="movies-container">
+          <div class="studios-grid">
+            <!-- Studio cards will be inserted here by JS -->
+          </div>
+          <!-- Arrows positioned over the grid -->
+          <button
+            class="scroll-arrow left-arrow studio-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow studio-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="browse-genres">
+        <h2>Browse by Genre</h2>
+        <div class="movies-container">
+          <div class="genres-grid">
+            <!-- Genre cards will be inserted here by JS -->
+          </div>
+          <!-- Arrows positioned over the grid -->
+          <button
+            class="scroll-arrow left-arrow genre-left-arrow"
+            aria-label="Scroll left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="scroll-arrow right-arrow genre-right-arrow"
+            aria-label="Scroll right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Discover Movies - Primlix</title>
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
+    <link rel="stylesheet" href="../css/movies.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script type="module" defer src="../js/movies.js"></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand"><a href="home.html">Primlix</a></div>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="movies.html" class="active">Movies</a>
+        <a href="community.html">Community</a>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <button class="search-icon" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search movies..."
+            aria-label="Search"
+          />
+        </div>
+        <div class="profile">
+          <img
+            id="profile-pic"
+            src="https://www.w3schools.com/w3images/avatar2.png"
+            alt="User Profile"
+            class="profile-pic"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main class="discover-main">
+      <aside class="filter-sidebar">
+        <h2>Filters</h2>
+
+        <div class="filter-group">
+          <div class="filter-group-header">
+            <label for="filter-genre">Genre</label>
+            <select
+              id="genre-mode"
+              class="filter-mode-select"
+              title="Genre Mode"
+            >
+              <option value="," selected>All (AND)</option>
+              <option value="|">Any (OR)</option>
+            </select>
+          </div>
+          <select id="filter-genre" multiple></select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-year">Year Range</label>
+          <select id="filter-year" class="filter-select">
+            <option value="">All Years</option>
+
+            <option value="2025-2030">2025-2030</option>
+            <option value="2020-2025">2020-2025</option>
+            <option value="2015-2020">2015-2020</option>
+            <option value="2010-2015">2010-2015</option>
+            <option value="2005-2010">2005-2010</option>
+            <option value="2000-2005">2000-2005</option>
+            <option value="1995-2000">1995-2000</option>
+            <option value="1980-1990">1980-1990</option>
+            <option value="1975-1980">1975-1980</option>
+            <option value="1970-1975">1970-1975</option>
+            <option value="1965-1970">1965-1970</option>
+            <option value="1960-1965">1960-1965</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-language">Language</label>
+          <select id="filter-language" class="filter-select">
+            <option value="">All Languages</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="ko">Korean</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ta">Tamil</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-provider">Streaming On (US)</label>
+          <select id="filter-provider" class="filter-select">
+            <option value="">All Platforms</option>
+            <option value="8">Netflix</option>
+            <option value="9">Amazon Prime Video</option>
+            <option value="337">Disney+</option>
+            <option value="384">HBO Max</option>
+            <option value="15">Hulu</option>
+            <option value="371">Apple TV+</option>
+            <option value="1899">Max</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-sort">Order By</label>
+          <select id="filter-sort" class="filter-select">
+            <option value="popularity.desc">Popularity (Desc)</option>
+            <option value="release_date.desc">Release Date (Newest)</option>
+            <option value="vote_average.desc">Rating (Desc)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Options</label>
+          <div class="toggle-group">
+            <span class="toggle-label">Released</span>
+            <label class="switch">
+              <input type="checkbox" id="filter-released" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <span class="toggle-label">Unreleased</span>
+            <label class="switch">
+              <input type="checkbox" id="filter-unreleased" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <button id="apply-filters-btn" class="filter-button">
+          Apply Filters
+        </button>
+        <button id="clear-filters-btn" class="filter-button clear-btn">
+          Clear
+        </button>
+      </aside>
+
+      <section class="results-container">
+        <div class="results-header">
+          <span id="results-count">Loading movies...</span>
+        </div>
+
+        <div class="results-grid"></div>
+
+        <div class="pagination-controls" id="pagination-controls"></div>
+      </section>
+    </main>
+  </body>
+</html>

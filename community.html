@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Community - Primlix</title>
+    <link rel="stylesheet" href="../css/community.css" />
+    <script type="module" defer src="../js/community.js"></script>
+  </head>
+  <body>
+    <!-- Header (reused from home.html) -->
+    <header class="app-header">
+      <div class="brand">Primlix</div>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <a href="community.html" class="active">Community</a>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <button class="search-icon" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <input
+            type="text"
+            class="search-bar"
+            placeholder="Search posts..."
+            aria-label="Search"
+          />
+        </div>
+        <div class="profile">
+          <a href="profile.html">
+            <img
+              src="https://www.w3schools.com/w3images/avatar2.png"
+              alt="User Profile"
+              class="profile-pic"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <div class="community-container">
+        <!-- Create Post Form (hidden if not logged in) -->
+        <div id="create-post-section" style="display: none">
+          <form id="create-post-form">
+            <input
+              type="text"
+              id="post-title"
+              placeholder="Post Title"
+              required
+            />
+            <select id="post-category" required>
+              <option value="">Select Category</option>
+              <option value="Review">Review</option>
+              <option value="Question">Question</option>
+              <option value="Discussion">Discussion</option>
+              <option value="Plot Help">Plot Help</option>
+            </select>
+            <input
+              type="text"
+              id="movie-search"
+              placeholder="Link to a movie (optional, search by title)"
+            />
+            <textarea
+              id="post-content"
+              placeholder="Write your post..."
+              required
+            ></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <select id="filter-category">
+            <option value="">All Categories</option>
+            <option value="Review">Reviews</option>
+            <option value="Question">Questions</option>
+            <option value="Discussion">Discussions</option>
+            <option value="Plot Help">Plot Help</option>
+          </select>
+          <input
+            type="text"
+            id="filter-movie"
+            placeholder="Filter by movie title"
+          />
+        </div>
+
+        <!-- Posts List -->
+        <div id="posts-list">
+          <!-- Posts will be dynamically inserted here -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
