@@ -1,0 +1,441 @@
+@import url("./signup.css"); /* Reuse theme variables */
+
+body {
+  margin: 0;
+  font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reuse header styles from home.css */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(19, 14, 63, 0.92);
+  backdrop-filter: blur(12px) saturate(160%);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 50;
+  animation: slideDown 0.5s var(--t-bounce);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  color: var(--text-light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple-400);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search-bar {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  width: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+  outline: none;
+  transition: width 0.3s var(--t-base), opacity 0.3s var(--t-base);
+}
+
+.search-bar.active {
+  opacity: 1;
+  width: 200px;
+}
+
+.search-bar::placeholder {
+  color: #9ca3af;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--purple-400);
+  cursor: pointer;
+}
+
+main {
+  margin-top: 80px; /* Account for fixed header */
+  padding: 20px 40px;
+  color: var(--text-light);
+  width: 100%;
+}
+
+/* Profile Info Section */
+.profile-info {
+  margin-bottom: 40px;
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* --- Profile Picture Styles --- */
+.profile-pic-container {
+  position: relative;
+  width: 100px; /* Set fixed size for the container */
+  height: 100px;
+  display: inline-block; /* Ensure container only takes necessary space */
+}
+
+.profile-pic-large {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--purple-400);
+  object-fit: cover;
+}
+
+/* Styling the button based on the ID used in profile.js */
+#edit-pic-btn {
+  /* Using your preferred styling for the button, adjusted for absolute positioning */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(168, 85, 247, 0.9);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 20; /* Ensure button is above the image */
+}
+
+#edit-pic-btn:hover {
+  background: var(--purple-700);
+}
+/* ----------------------------------------------- */
+
+.user-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+/* My Lists Section - Reuse movie grid styles from home.css */
+.my-lists h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  margin-top: 40px;
+}
+
+.movies-container {
+  position: relative;
+  width: 100%;
+}
+
+.movies-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+}
+
+.movies-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  flex-shrink: 0;
+  width: 180px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(19, 14, 63, 0.9);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.movie-year {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.movie-description {
+  font-size: 0.85rem;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.movie-actions button {
+  background: var(--purple-600);
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.movie-actions button:hover {
+  background: var(--purple-700);
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(19, 14, 63, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.scroll-arrow:hover {
+  background: rgba(168, 85, 247, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+/* Account Management Section */
+.account-management {
+  margin-top: 40px;
+}
+
+.account-management h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.management-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--purple-600);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--purple-700);
+}
+
+.btn-secondary {
+  background: #374151;
+  color: #fff;
+  border: 1px solid #6b7280;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+/* User Activity Chart Section */
+.user-activity {
+  margin-bottom: 40px;
+}
+
+.user-activity h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px; /* Give the chart a fixed height */
+  width: 100%;
+  background: rgba(19, 14, 63, 0.5); /* Slight background */
+  border: 1px solid rgba(168, 85, 247, 0.3); /* Match theme */
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 20px;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .profile-details {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Responsive update for profile container */
+  .profile-pic-container {
+    margin-bottom: 10px;
+  }
+
+  .movie-card {
+    width: 140px;
+  }
+
+  .management-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    width: 100%;
+  }
+}

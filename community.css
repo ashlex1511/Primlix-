@@ -1,0 +1,234 @@
+@import url("./home.css"); /* Reuse header and theme variables */
+
+.community-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#create-post-section {
+  background: rgba(19, 14, 63, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#create-post-form input,
+#create-post-form select,
+#create-post-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+}
+
+#create-post-form textarea {
+  min-height: 100px;
+}
+
+#create-post-form button {
+  background: var(--purple-600);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters select,
+.filters input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+}
+
+.post {
+  background: rgba(19, 14, 63, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer; /* Indicate clickable */
+  transition: background 0.2s ease;
+}
+
+.post:hover {
+  background: rgba(168, 85, 247, 0.1);
+}
+.post-clickable {
+  cursor: pointer;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.post-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 10px 0;
+  color: var(--text-light);
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.post-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 10px 0;
+  color: var(--text-light);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add "......" if truncated */
+}
+
+.post-category {
+  display: inline-block;
+  background: var(--purple-600);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.post-profile-pic {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--purple-400);
+}
+
+.post-author {
+  font-weight: 600;
+}
+.post-dot {
+  color: #9ca3af;
+}
+.post-time {
+  color: #9ca3af;
+}
+
+.post-movie {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* ... existing styles ... */
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  pointer-events: none; /* Prevent interference with post click */
+}
+
+.post-actions button {
+  background: var(--purple-600);
+  border: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  gap: 5px; /* Space between icon and count */
+  transition: background 0.2s ease;
+}
+
+.post-actions button:hover {
+  background: var(--purple-700);
+}
+
+.post-actions button svg {
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.post-actions button .count {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ... existing styles ... */
+
+.post-actions button svg {
+  transition: fill 0.2s ease, stroke 0.2s ease; /* Smooth color change */
+}
+
+.post-actions button.liked svg {
+  fill: #ff0000; /* Red fill for liked */
+  stroke: #ff0000; /* Red stroke for liked */
+}
+
+.post-actions button.disliked svg {
+  fill: var(--text-dark); /* Purple fill for disliked */
+}
+
+/* ... rest of existing styles ... */
+
+.comments {
+  margin-top: 20px;
+}
+
+.comment {
+  background: rgba(19, 14, 63, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.comment-form textarea {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+}
+
+.comment-form button {
+  background: var(--purple-600);
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

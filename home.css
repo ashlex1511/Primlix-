@@ -1,0 +1,365 @@
+@import url("./signup.css"); /* reuse theme variables */
+
+body {
+  margin: 0;
+  font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(19, 14, 63, 0.92);
+  backdrop-filter: blur(12px) saturate(160%);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 50;
+  animation: slideDown 0.5s var(--t-bounce);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem; /* smaller, like sign in/up pages */
+  letter-spacing: 0.4px;
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  color: var(--text-light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple-400);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search-bar {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  width: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+  outline: none;
+  transition: width 0.3s var(--t-base), opacity 0.3s var(--t-base);
+}
+
+.search-bar.active {
+  opacity: 1;
+  width: 200px;
+}
+
+.search-bar::placeholder {
+  color: #9ca3af;
+}
+
+/* Profile */
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--purple-400);
+  cursor: pointer;
+}
+
+main {
+  margin-top: 30px;
+  padding: 20px 40px;
+  color: var(--text-light);
+  width: 100%;
+}
+
+.latest-movies h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.movies-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  width: 100%;
+}
+
+.movies-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+.movie-card {
+  flex-shrink: 0;
+  width: 180px; /* Fixed width to fit ~5 cards on screen */
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(19, 14, 63, 0.9);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
+
+.movie-year {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.movie-description {
+  font-size: 0.85rem;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-actions {
+  display: flex;
+  flex-direction: column; /* This stacks them vertically */
+  gap: 10px; /* A bit more space between buttons */
+  width: 80%; /* Makes the buttons wider, as in your screenshot */
+  margin: 0 auto; /* Centers the 80% width container */
+}
+
+.movie-actions button {
+  background: var(--purple-600);
+  border: none;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.movie-actions button:hover {
+  background: var(--purple-700);
+}
+
+.movies-container {
+  position: relative; /* For absolute positioning of arrows */
+  width: 100%;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(
+    19,
+    14,
+    63,
+    0.8
+  ); /* Semi-transparent to blend with card overlays */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  z-index: 10; /* Above movie cards */
+}
+
+.scroll-arrow:hover {
+  background: rgba(168, 85, 247, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+.scroll-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.left-arrow,
+.feed-left-arrow {
+  left: 10px; /* Position over the left edge of the first visible card */
+}
+
+.right-arrow,
+.feed-right-arrow {
+  right: 10px; /* Position over the right edge of the last visible card */
+}
+
+.top-rated-movies h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.browse-genres h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Reuse .movies-container and .scroll-arrow from existing styles */
+
+.genres-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  width: 100%;
+}
+
+.genres-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+.genre-card,
+.studio-card {
+  flex-shrink: 0;
+  width: 180px; /* Fixed width to fit ~5-6 cards on screen */
+  background: rgba(19, 14, 63, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  height: 120px; /* Maintain large height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.studio-card:hover {
+  transform: scale(1.05);
+  background: rgba(168, 85, 247, 0.2);
+  box-shadow: 0 8px 16px rgba(168, 85, 247, 0.3);
+}
+.studio-card:active {
+  transform: scale(1);
+}
+
+.browse-studios h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.studios-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  width: 100%;
+}
+.studios-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+.genre-card:hover {
+  transform: scale(1.05);
+  background: rgba(168, 85, 247, 0.2);
+  box-shadow: 0 8px 16px rgba(168, 85, 247, 0.3);
+}
+
+.genre-card:active {
+  transform: scale(1);
+}
+
+.popular-movies h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}

@@ -1,0 +1,400 @@
+@import url("./signup.css"); /* Reuse theme variables */
+
+/* NOTE: We are reusing .app-header, .movie-card, .movie-overlay, 
+   .btn-like, .btn-save, .btn-details, and .profile-pic styles 
+   from home.css, which is linked in the HTML.
+*/
+
+body {
+  /* Body styles from home.css */
+  margin: 0;
+  font-family: -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main layout for Discover page */
+.discover-main {
+  display: flex;
+  margin-top: 64px; /* Account for fixed header */
+  padding: 20px 40px;
+  gap: 30px;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+  flex: 0 0 250px; /* Sidebar width: don't grow, don't shrink, start at 250px */
+  background: rgba(19, 14, 63, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content; /* Make sidebar only as tall as its content */
+  position: sticky;
+  top: 84px; /* Stick 20px below the 64px header */
+}
+
+.filter-sidebar h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--purple-500);
+  padding-bottom: 10px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+/* NEW: Header for filter group (e.g., "Genre" + "Any/All") */
+.filter-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.filter-group-header label {
+  margin-bottom: 0; /* Remove bottom margin since it's in a flex container */
+}
+
+/* NEW: Any/All select toggle */
+.filter-mode-select {
+  background: #374151;
+  border: 1px solid var(--purple-400);
+  color: var(--text-light);
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter-mode-select:focus {
+  outline: none;
+}
+/* END NEW */
+
+.filter-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-light);
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px;
+  background: #202225;
+  border: 1px solid var(--purple-400);
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+}
+
+.filter-button {
+  width: 100%;
+  padding: 12px;
+  background: var(--purple-600);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.filter-button:hover {
+  background: var(--purple-700);
+  transform: translateY(-2px);
+}
+
+/* NEW: Clear Button Style */
+.clear-btn {
+  background: #374151; /* A neutral gray */
+  margin-top: 10px;
+}
+.clear-btn:hover {
+  background: #4b5563;
+}
+
+/* NEW: Toggle Switch Styles */
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.toggle-label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #374151;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: var(--purple-600);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--purple-600);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.slider.round {
+  border-radius: 28px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Results Area */
+.results-container {
+  flex: 1; /* Take up the remaining space */
+  min-width: 0; /* Prevents grid from overflowing */
+}
+
+/* NEW: Results Header */
+.results-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+#results-count {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.results-grid {
+  display: grid;
+  /* Use home.css .movie-card width (180px) to calculate columns */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* Re-style .movie-card for a grid vs. a flex row */
+/* This overrides .movie-card from home.css */
+.movie-card {
+  width: 100%; /* Make card fill the grid column */
+  flex-shrink: 1; /* Allow card to shrink if needed */
+}
+
+/* ===============================================
+NEW: Choices.js Theme Overrides
+===============================================
+*/
+
+/* Main container */
+.choices {
+  width: 100%;
+}
+
+/* The box you click on */
+.choices__inner {
+  background: #202225;
+  border: 1px solid var(--purple-400);
+  border-radius: 8px;
+  padding: 6px 10px;
+  min-height: 44px; /* Match other filters */
+  font-size: 1rem;
+}
+.choices[data-type*="select-multiple"] .choices__inner {
+  padding-bottom: 2px; /* Stop pills from being cut off */
+}
+.is-open .choices__inner {
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+}
+
+/* Selected item "pills" */
+.choices__item--choice,
+.choices__item--selectable {
+  font-size: 0.95rem;
+}
+.choices[data-type*="select-multiple"] .choices__item {
+  background-color: var(--purple-600);
+  border: 1px solid var(--purple-700);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* The "X" remove button on a pill */
+.choices__item.is-highlighted .choices__button,
+.choices[data-type*="select-multiple"] .choices__button {
+  filter: invert(100%); /* Makes the black 'X' icon white */
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+.choices[data-type*="select-multiple"] .choices__button:hover {
+  opacity: 1;
+  background-color: var(--purple-500);
+}
+
+/* The dropdown menu */
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+  background: #202225;
+  border: 1px solid var(--purple-400);
+  border-radius: 8px;
+  margin-top: 5px;
+  word-break: break-all;
+}
+
+/* The search bar inside the dropdown */
+.choices__input {
+  background-color: #374151;
+  border: 1px solid var(--purple-400);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+.choices__input:focus {
+  border-color: var(--purple-500);
+}
+
+/* Placeholder text (e.g., "Search...") */
+.choices__input::placeholder {
+  color: #9ca3af;
+}
+.choices__placeholder {
+  color: #9ca3af;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+/* Items in the dropdown */
+.choices__list--dropdown .choices__item {
+  color: var(--text-light);
+  padding: 8px 10px;
+}
+
+/* Hovered/focused item in dropdown */
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: var(--purple-600);
+  color: #fff;
+}
+
+/* Selected item in dropdown (shows checkmark) */
+.choices__list--dropdown .choices__item--selectable.is-selected {
+  background-color: #2b2a33; /* Darker bg */
+  color: var(--purple-300);
+  font-weight: 600;
+}
+.choices__list--dropdown .choices__item--selectable.is-selected::after {
+  /* This is the checkmark */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 6L9 17L4 12' stroke='%23c084fc' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  height: 12px;
+  width: 12px;
+  margin-top: -6px;
+  opacity: 1;
+}
+
+/* No results message */
+.choices__list--dropdown .choices__item--no-results {
+  color: #9ca3af;
+}
+
+/* NEW: Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.page-btn {
+  background: #374151;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-btn:hover {
+  background: var(--purple-700);
+  border-color: var(--purple-500);
+}
+
+.page-btn.active {
+  background: var(--purple-600);
+  border-color: var(--purple-600);
+}
+
+.page-btn:disabled {
+  background: #202225;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.page-dots {
+  color: #6b7280;
+  margin: 0 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .discover-main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .filter-sidebar {
+    flex: 1;
+    position: static; /* Don't stick on mobile */
+    width: 100%;
+  }
+
+  .results-grid {
+    /* Adjust for smaller screens, 2 columns */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}

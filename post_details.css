@@ -1,0 +1,288 @@
+@import url("./community.css"); /* Reuse header, theme, and post styles */
+
+.post-details-container {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#post-content {
+  background: rgba(19, 14, 63, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  justify-content: space-between; /* Space between left content and menu */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* This adds the gap correctly between the pic and username */
+}
+
+.post-profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--purple-400);
+}
+
+.post-author {
+  font-weight: 600;
+}
+
+.post-dot {
+  color: #9ca3af;
+}
+
+.post-time {
+  color: #9ca3af;
+}
+
+#post-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px 0;
+  color: var(--text-light);
+}
+
+.post-category {
+  display: inline-block;
+  background: var(--purple-600);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.post-movie {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.post-movie img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.full-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 15px 0;
+  color: var(--text-light);
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.post-actions button,
+.post-actions a.btn-movie-details {
+  background: var(--purple-600);
+  border: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.post-actions button:hover,
+.post-actions a.btn-movie-details:hover {
+  background: var(--purple-700);
+}
+
+.post-actions button svg {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.post-actions button.liked svg {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.post-actions button.disliked svg {
+  fill: var(--purple-400);
+  stroke: var(--purple-400);
+}
+
+#comments-section h3 {
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.comment {
+  background: rgba(19, 14, 63, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--purple-400); /* Indent for nesting */
+}
+
+.comment.nested {
+  margin-left: 20px; /* Further indent for replies */
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+
+.comment-content {
+  margin: 8px 0;
+  color: var(--text-light);
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px; /* Slightly less gap than post actions */
+  margin-top: 8px;
+}
+
+.comment-actions button {
+  background: var(--purple-600);
+  border: none;
+  color: #fff;
+  padding: 6px; /* Smaller padding for comments */
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Smaller gap */
+  transition: background 0.2s ease;
+  font-size: 0.85rem; /* Smaller font */
+}
+
+.comment-actions button:hover {
+  background: var(--purple-700);
+}
+
+.comment-actions button svg {
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.comment-actions button.liked svg {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+.comment-actions button.disliked svg {
+  fill: var(--purple-400);
+  stroke: var(--purple-400);
+}
+.comment.nested {
+  margin-left: 20px;
+  margin-top: 15px; /* Add a small gap above nested comments */
+  border-left: 3px solid var(--purple-400);
+}
+
+#add-comment {
+  margin-top: 20px;
+  background: rgba(19, 14, 63, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#add-comment textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--purple-400);
+  background: #202225;
+  color: var(--text-light);
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+#add-comment button {
+  background: var(--purple-600);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.options-menu {
+  position: relative;
+  margin-left: auto; /* Push to the right in flex container */
+}
+
+.options-btn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.options-btn:hover {
+  opacity: 1;
+}
+
+.options-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(19, 14, 63, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 10;
+  min-width: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.options-dropdown.show {
+  display: block;
+}
+.options-dropdown button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  padding: 8px 16px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+.options-dropdown button:hover {
+  background: rgba(168, 85, 247, 0.2);
+}
